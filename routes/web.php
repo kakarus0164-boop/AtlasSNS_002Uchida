@@ -41,6 +41,12 @@ Route::middleware('auth')->group(function () {
   Route::get('/follows/followerlist', [FollowsController::class, 'followerList'])->name('follows.followerlist');
   //他ユーザーのプロフィール
   Route::get('/users/{id}' , [ProfileController::class, 'show'])->name('users.show');
+  // 投稿編集画面
+  Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
+  // 投稿更新
+  Route::put('/posts/{post}', [PostsController::class, 'update'])->name('posts.update');
+  // 投稿削除
+  Route::delete('/posts/{post}', [PostsController::class, 'destroy'])->name('posts.destroy');
 });
 
 Route::middleware('auth')->get('/auth-test', function () {

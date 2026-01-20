@@ -44,6 +44,19 @@
         </div>
       </div>
 
+      @if(Auth::id() === $post->user_id)
+        <div class="post-action">
+            {{-- 編集 --}}
+            <a href="{{ route('posts.edit', $post->id) }}" class="edit-btn"></a>
+
+            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="delete-btn"></button>
+            </form>
+        </div>
+      @endif
+
     </div>
   @endforeach
 @endif
