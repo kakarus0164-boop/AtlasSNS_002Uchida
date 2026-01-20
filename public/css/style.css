@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+/* =========================
+   共通
+========================= */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* =========================
+   header（ログイン後）
+========================= */
+body.auth header {
+    display: flex;
+    justify-content: space-between;
+    /* 左にロド、右にユーザーメニュー */
+    align-items: center;
+    background: #186AC9;
+    padding: 20px 20px;
+    box-sizing: border-box;
+    color: white;
+}
+
+header .logo img {
+    height: 50px;
+    /* 好きな高さに調整 */
+    display: block;
+    /* クリック範囲をロゴ全体に */
+}
+
+/* ユーザーメニュー */
+header .user-menu {
+    display: flex;
+    align-items: center;
+    /* 横並びで縦位置揃え */
+    gap: 8px;
+    /* 文字とアイコンの間隔 */
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ＞ の下向きV字（CSSで作る） */
+header .dropdown-arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg);
+    /* 下向き */
+    transition: transform 0.3s ease;
+}
+
+/* クリック時：上向き */
+header .dropdown-arrow.open {
+    transform: rotate(-135deg);
+}
+
+/* ドロップダウンメニュー初期状態は非表示 */
+header .user-menu .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    /* アイコンの下に表示 */
+    right: 0;
+    /* 右寄せ */
+    background: #fff;
+    color: #333;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    min-width: 160px;
+    z-index: 1000;
+}
+
+/* 表示状態 */
+header .user-menu .dropdown-menu.show {
+    display: block;
+}
+
+/* メニュー項目 */
+.dropdown-menu li a,
+.dropdown-menu li button {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li button:hover {
+    background-color: #f0f0f0;
+}
+
+/* ログアウトボタンをリンク風に */
+.logout-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #333;
+    cursor: pointer;
+}
+
+/* ヘッダー右側 */
+header .user-name {
+    white-space: nowrap;
+}
+
+header .user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+header .user-menu .dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* =========================
+   main layout（ログイン後）
+========================= */
+body.auth #row {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+body.auth #container {
+    flex: 0 0 80%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+body.auth #side-bar {
+    flex: 0 0 20%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 1px solid #727272;
+    background: #f7f7f7;
+}
+
+/* =========================
+   投稿一覧
+========================= */
+
+.post {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.post-icon img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.post-body {
+    flex: 1;
+}
+
+.post-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-text {
+    line-height: 1.6;
+}
+
+.post-meta {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+}
+
+.post-form {
+    background: #fff;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.post-form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.post-form textarea {
+    flex: 1;
+    resize: none;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.post-form button {
+    background: #186AC9;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-form button:hover {
+    opacity: 0.85;
+}
+
+/* =========================
+   サイドバー内リンク整理
+========================= */
+#side-bar aside {
+    padding: 10px;
+}
+
+#side-bar h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+#side-bar ul {
+    list-style: none;
+    /* デフォルトの黒点を消す */
+    padding: 0;
+    /* 左余白を消す */
+    margin: 0;
+}
+
+#side-bar li {
+    margin-bottom: 10px;
+    /* 下に間隔 */
+}
+
+#side-bar a {
+    text-decoration: none;
+    color: #186AC9;
+    font-weight: bold;
+}
+
+#side-bar a:hover {
+    text-decoration: underline;
+}
+
+/* エラー表示 */
+.error {
+    border: 2px solid red;
+}
