@@ -45,14 +45,18 @@
       </div>
 
       @if(Auth::id() === $post->user_id)
-        <div class="post-action">
+        <div class="post-actions">
             {{-- 編集 --}}
-            <a href="{{ route('posts.edit', $post->id) }}" class="edit-btn"></a>
+            <a href="{{ route('posts.edit', $post->id) }}" class="edit-btn">
+              <img src="{{ asset('images/edit.png') }}" alt="編集">
+            </a>
 
             <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
               @csrf
               @method('DELETE')
-              <button type="submit" class="delete-btn"></button>
+              <button type="submit" class="delete-btn">
+                <img src="{{ asset('images/trash.png') }}" alt="削除">
+              </button>
             </form>
         </div>
       @endif
