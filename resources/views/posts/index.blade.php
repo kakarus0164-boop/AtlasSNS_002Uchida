@@ -27,42 +27,108 @@
   <p class="no-post">まだ投稿がありません。</p>
 @else
   @foreach($posts as $post)
-    <div class="post">
+      <div class="post">
 
-      <div class="post-icon">
-        <img src="https://placehold.jp/50x50.png" alt="{{ $post->user->username }}">
+        <div class="post-left">
+          <div class="post-icon">
+            <img src="https://placehold.jp/50x50.png" alt="{{ $post->user->username }}">
+          </div>
+
+            <div class="post-body">
+              <div class="post-header">
+                <div class="post-user">{{ $post->user->username }}</div>
+              </div>
+
+          <div class="post-text">
+            {!! nl2br(e($post->post)) !!}
+          </div>
+        </div>
       </div>
 
-      <div class="post-body">
-        <div class="post-header">
-          <span class="post-user">{{ $post->user->username }}</span>
-          <span class="post-meta">{{ $post->created_at->format('Y-m-d') }}</span>
+        <div class="post-right">
+          <div class="post-meta">
+            {{ $post->created_at->format('Y-m-d') }}
+          </div>
         </div>
 
-        <div class="post-text">
-          {!! nl2br(e($post->post)) !!}
-        </div>
-      </div>
+        @if(Auth::id() === $post->user_id)
+          <div class="post-actions">
 
-      @if(Auth::id() === $post->user_id)
-        <div class="post-actions">
-            {{-- 編集 --}}
-            <a href="{{ route('posts.edit', $post->id) }}" class="edit-btn">
-              <img src="{{ asset('images/edit.png') }}" alt="編集">
-            </a>
-
-            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="delete-btn">
-                <img src="{{ asset('images/trash.png') }}" alt="削除">
+              {{-- 編集（モーダルを開く --}}
+              <button
+                 type="button"
+                 class="edit-btn"
+                 data-id="{{ $post->id }}"
+                 data-post="{{ e($post->post) }}"
+              >
+                <img src="{{ asset('images/edit.png') }}" class="normal" alt="編集">
+                <img src="{{ asset('images/edit_h.png') }}" class="hover" alt="編集">
               </button>
-            </form>
-        </div>
-      @endif
 
-    </div>
+              {{-- 削除 --}}
+              <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="delete-btn" onclick="return confirm('削除しますか？')">
+                  <img src="{{ asset('images/trash.png') }}" class="normal" alt="削除">
+                  <img src="{{ asset('images/trash-h.png') }}" class="hover"
+                   alt="削除">
+                </button>
+              </form>
+
+          </div>
+        @endif
+
+      </div>
   @endforeach
 @endif
 
-@endsection
+
+    {{-- 編集モーダル --}}
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+
+        <form method="POST" id="edit-form">
+
+          @csrf
+          @method('PUT')
+
+          <input type="hidden" name="post_id" id="edit-post-id">
+
+          <textarea
+            name="post"
+            id="edit-post-content"
+            maxlength="150"
+            rows="5"
+          ></textarea>
+
+          <div class="modal-buttons">
+            <button type="submit">更新</button>
+            <button type="button" id="close-modal">キャンセル</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    {{-- js --}}
+    <script>
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+           const postId = btn.dataset.id;
+
+           document.getElementById('edit-post-id').value = btn.dataset.id;
+           document.getElementById('edit-post-content').value = btn.dataset.post;
+
+           document.getElementById('edit-form').action = `/posts/${postId}`;
+
+           document.getElementById('edit-modal').style.display = 'block';
+        });
+      });
+
+       document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('edit-modal').style.display = 'none';
+      });
+    </script>
+
+    @endsection
