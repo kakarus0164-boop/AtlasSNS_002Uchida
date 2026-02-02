@@ -325,11 +325,27 @@ body.auth #side-bar {
 
 
 /* 初期状態 */
+.edit-btn .hover {
+    display: none;
+}
+
+/* ホバー時 */
+
+.edit-btn:hover .normal {
+    display: none;
+}
+
+.edit-btn:hover .hover {
+    display: block;
+}
+
+/* 初期状態 */
 .delete-btn .hover {
     display: none;
 }
 
 /* ホバー時 */
+
 .delete-btn:hover .normal {
     display: none;
 }

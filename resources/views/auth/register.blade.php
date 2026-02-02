@@ -1,26 +1,39 @@
 <x-logout-layout>
     <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => 'register']) !!}
 
-<h2>新規ユーザー登録</h2>
+<div class="register-wrapper">
+  <div class="register-card">
 
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+       {!! Form::open(['url' => 'register']) !!}
 
-{{ Form::label('メールアドレス') }}
-{{ Form::email('email',null,['class' => 'input']) }}
+           <h2>新規ユーザー登録</h2>
 
-{{ Form::label('パスワード') }}
-{{ Form::password('password',null,['class' => 'input']) }}
+           <div class="form-group">
+               {{ Form::label('ユーザー名') }}
+               {{ Form::text('username',null,['class' => 'input']) }}
+           </div>
 
-{{ Form::label('パスワード確認') }}
-{{ Form::password('password_confirmation',null,['class' => 'input']) }}
+           <div class="form-group">
+               {{ Form::label('メールアドレス') }}
+               {{ Form::email('email',null,['class' => 'input']) }}
+           </div>
 
-{{ Form::submit('登録') }}
+           <div class="form-group">
+               {{ Form::label('パスワード') }}
+               {{ Form::password('password',null,['class' => 'input']) }}
+           </div>
 
-<p><a href="{{ route('login') }}">ログイン画面へ戻る</a></p>
+           <div class="form-group">
+               {{ Form::label('パスワード確認') }}
+               {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+           </div>
 
-{!! Form::close() !!}
+           {{ Form::submit('新規登録') , ['class' => 'register-btn'] }}
 
+           <p><a href="{{ route('login') }}">ログイン画面へ戻る</a></p>
+
+        {!! Form::close() !!}
+   </div>
+</div>
 
 </x-logout-layout>

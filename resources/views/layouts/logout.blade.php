@@ -24,11 +24,9 @@
     </head>
     <body>
         <header>
-            <h1>
-                <a href="{{ route('posts.index') }}">
-                   <img src="{{ asset('images/atlas.png') }}" alt="Atlas">
-                </a>
-            </h1>
+            <div class="logo">
+                <img src="{{ asset('images/atlas.png') }}" alt="Atlas" class="logo">
+            </div>
 
             {{-- ログアウト --}}
             <form method="POST" action="{{ route('logout') }}">
