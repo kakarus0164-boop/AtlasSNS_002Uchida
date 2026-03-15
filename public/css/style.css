@@ -569,3 +569,11 @@ a {
     border-radius: 50%;
     /* 丸くする */
 }
+
+.userprofile {
+    display: flex;
+}
+
+.userprofile-btn {
+    display: flex;
+}

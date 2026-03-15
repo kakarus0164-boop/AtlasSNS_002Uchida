@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
   //フォロー一覧
   Route::get('/follows/followerlist', [FollowsController::class, 'followerList'])->name('follows.followerlist');
   //他ユーザーのプロフィール
-  // Route::get('/users/{id}' , [ProfileController::class, 'show'])->name('users.show');
+  Route::get('/profile/{id}' , [ProfileController::class, 'userprofile'])->name('userprofile');
   // 投稿編集画面
 
   // フォロー追加、削除
