@@ -15,8 +15,11 @@ class FollowsController extends Controller
     {
         //where、whereInも探すという意味
         //where=1つの値を探す、whereIn=複数探す
+        //自分がフォローしている人のIDを取得
         $following_id = Auth::user()->followings()->pluck('followed_id');
+        // 【アイコン用】自分がフォローしているユーザー全員を取得
         $following = User::whereIn('id', $following_id)->get();
+        // 【投稿用】自分がフォローしている人「だけ」の投稿を最新順に取得
         $posts = Post::with('user')->whereIn('user_id', $following_id)->orderBy('created_at', 'desc')->get();
         //最新順にする
         return view('follows.followlist', compact('posts', 'following'));

@@ -182,6 +182,10 @@ body.auth #side-bar {
 }
 
 .post-user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
     font-weight: bold;
 }
 
@@ -190,7 +194,7 @@ body.auth #side-bar {
 }
 
 .post-meta {
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: #999;
 }
 
@@ -528,4 +532,40 @@ body.auth #side-bar {
 
 a {
     color: #fff;
+}
+
+.follower-list-header {
+    display: flex;
+    align-items: center;
+    /* 垂直方向の真ん中 */
+    flex-wrap: wrap;
+    /* アイコンが増えたら自動的に折り返す */
+    padding: 20px;
+    border-bottom: 2px solid #E6E6E6;
+    /* 下線 */
+}
+
+.list-title h2 {
+    font-size: 24px;
+    white-space: nowrap;
+    /* 改行させない */
+    margin-right: 30px;
+}
+
+.follower-icon,
+.followed-icon {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* アイコンが増えたら自動的に折り返す */
+    gap: 10px;
+    margin-left: 20px;
+    /* フォロワーリストの文字の間隔 */
+}
+
+.follower-icon,
+.followed-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* 丸くする */
 }
