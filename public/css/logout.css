@@ -18,8 +18,6 @@ body {
     margin-top: 15px;
 }
 
-.title {}
-
 .wrapper {
     height: 100%;
     display: flex;
@@ -90,4 +88,12 @@ body {
     display: block;
     margin-bottom: 5px;
     font-size: 13px;
+}
+
+input {
+    color: black;
+}
+
+a {
+    color: #fff;
 }

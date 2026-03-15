@@ -34,14 +34,19 @@ Route::middleware('auth')->group(function () {
   //ユーザー検索画面
   Route::get('/users/search', [UsersController::class, 'search'])->name('users.search');
   //検索結果
-  Route::get('/users/search_result', [UsersController::class, 'searchResult'])->name('users.search.result');
+  Route::post('/users/search_result', [UsersController::class, 'search'])->name('users.search.result');
   //フォロー一覧
   Route::get('/follows/followlist', [FollowsController::class, 'followList'])->name('follows.followlist');
   //フォロー一覧
   Route::get('/follows/followerlist', [FollowsController::class, 'followerList'])->name('follows.followerlist');
   //他ユーザーのプロフィール
-  Route::get('/users/{id}' , [ProfileController::class, 'show'])->name('users.show');
+  // Route::get('/users/{id}' , [ProfileController::class, 'show'])->name('users.show');
   // 投稿編集画面
+
+  // フォロー追加、削除
+  Route::post('/follow/{id}', [FollowsController::class, 'follow'])->name('follow');
+  Route::post('/unfollow/{id}', [FollowsController::class, 'unfollow'])->name('unfollow');
+
   Route::get('/posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
   // 投稿更新
   Route::put('/posts/{post}', [PostsController::class, 'update'])->name('posts.update');

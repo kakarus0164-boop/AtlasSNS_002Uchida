@@ -7,6 +7,15 @@
        {!! Form::open(['url' => 'register']) !!}
 
            <h2>新規ユーザー登録</h2>
+           @if ($errors->any())
+               <div style="color:red;">
+                   <ul>
+                        @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
            <div class="form-group">
                {{ Form::label('username','ユーザー名') }}

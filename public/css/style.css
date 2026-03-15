@@ -132,22 +132,30 @@ header .user-menu .dropdown-menu li a:hover {
    main layout（ログイン後）
 ========================= */
 body.auth #row {
-    display: flex;
-    min-height: calc(100vh - 60px);
+    background-color: #f0f0f0;
+    /* display: flex; */
+    /* min-height: calc(100vh - 60px); */
+    /* border-top: 1px solid #727272; */
+    /* ヘッダーとの境目（必要なら） */
 }
 
 body.auth #container {
-    flex: 0 0 80%;
-    padding: 20px;
-    box-sizing: border-box;
+    /* flex: 1; */
+    padding: 0;
+    /* フォームの周りに隙間を作らない場合は0に */
+    /* box-sizing: border-box; */
+    background-color: #fff;
+    border-right: 1px solid #727272;
 }
 
 body.auth #side-bar {
-    flex: 0 0 20%;
+    /* width: 300px;
+    flex: 0 0 300px;
     padding: 20px;
     box-sizing: border-box;
+    background: #fff; */
+    background-color: #f0f0f0;
     border-left: 1px solid #727272;
-    background: #f7f7f7;
 }
 
 /* =========================
@@ -155,18 +163,18 @@ body.auth #side-bar {
 ========================= */
 
 .post {
-    position: relative;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
     padding: 20px;
+    margin: 20px;
     border-bottom: 1px solid #ddd;
-    background: #fff;
+    box-sizing: border-box;
 }
 
 .post-icon img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 .post-body {
@@ -175,7 +183,6 @@ body.auth #side-bar {
 
 .post-user {
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
 .post-text {
@@ -183,14 +190,14 @@ body.auth #side-bar {
 }
 
 .post-meta {
-    font-size: 12px;
-    color: #666;
+    font-size: 0.9em;
+    color: #999;
 }
 
 .post-form {
     background: #fff;
     padding: 15px 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 5px solid #e0e0e0;
 }
 
 .post-form form {
@@ -201,30 +208,49 @@ body.auth #side-bar {
 
 .post-form textarea {
     flex: 1;
-    resize: none;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /* resize: none; */
+    /* padding: 10px; */
+    /* font-size: 14px; */
+    /* border: 1px solid #ccc; */
+    /* border-radius: 4px; */
 }
 
 .post-form button {
-    background: #186AC9;
-    color: #fff;
+    background: none;
+    /* 背景色を消す（画像が背景なら） */
     border: none;
-    padding: 10px 16px;
-    border-radius: 50%;
+    padding: 0;
+    /* パディングをリセット */
     cursor: pointer;
+    width: 60px;
+    /* サイズを固定 */
+    height: 60px;
+    /* サイズを固定 */
+    flex-shrink: 0;
 }
 
 .post-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    just margin-bottom: 5px;
 }
 
 .post-form button:hover {
     opacity: 0.85;
+}
+
+.post-btn {
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border: none;
+    background: none;
+    flex-shrink: 0;
+    /* 潰されないように固定 */
+}
+
+.post-btn img {
+    width: 100%;
+    height: auto;
 }
 
 /* =========================
@@ -352,4 +378,154 @@ body.auth #side-bar {
 
 .delete-btn:hover .hover {
     display: block;
+}
+
+/* =========================
+   編集モーダル
+========================= */
+
+.edit-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.edit-modal-content {
+    background: #fff;
+    width: 60%;
+    max-width: 700px;
+    margin: 120px auto;
+    padding: 40px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* textarea */
+#edit-post-content {
+    width: 100%;
+    height: 180px;
+    resize: none;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* ボタンエリア */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* 更新ボタン */
+.modal-buttons button[type="submit"] {
+    background: #fff;
+    border: 1px solid #333;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+/* キャンセル */
+#close-modal {
+    background: #fff;
+    border: 1px solid #333;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+/* =========================
+   ユーザー検索（フォロー機能）
+========================= */
+.search-container {
+    display: flex;
+    background: #fff;
+    padding: 30px;
+    max-width: 700px;
+}
+
+.search-form input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 8px 14px;
+    background: #186AC9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form {
+    /* display: flex; */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-container h3 {
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+.username {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.user {
+    margin: 0;
+    font-size: 16px;
+}
+
+.user-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.follow-btn {
+    background: #4aa3ff;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.unfollow-btn {
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.follow-btn:hover,
+.unfollow-btn:hover {
+    opacity: 0.85;
+}
+
+a {
+    color: #fff;
 }
