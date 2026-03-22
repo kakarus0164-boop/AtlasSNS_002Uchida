@@ -9,7 +9,7 @@
   <div class="post-form">
     <form action="{{ route('posts.store') }}" method="POST">
       @csrf
-      <img src="{{ asset('images/'.Auth::user()->icon_image) }}" class="user-icon">
+      <img src="{{ asset('storage/'.Auth::user()->icon_image) }}" class="user-icon">
 
       <textarea
         name="post"

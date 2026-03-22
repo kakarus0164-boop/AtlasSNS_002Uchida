@@ -6,6 +6,16 @@
     {{-- プロフィール編集フォームの塊 --}}
     <div class="profile-edit-box">
 
+            @if ($errors->any())
+               <div style="color:red;">
+                   <ul>
+                        @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
       <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- ↑　Laravelを作成する際の合言葉 -->
