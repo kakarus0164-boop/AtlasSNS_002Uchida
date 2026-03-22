@@ -165,9 +165,9 @@ body.auth #side-bar {
 .post {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-    margin: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
     border-bottom: 1px solid #ddd;
     box-sizing: border-box;
 }
@@ -235,7 +235,7 @@ body.auth #side-bar {
 
 .post-header {
     display: flex;
-    just margin-bottom: 5px;
+    justify-content: space-between;
 }
 
 .post-form button:hover {
@@ -570,10 +570,32 @@ a {
     /* 丸くする */
 }
 
+.user-list-header {
+    border-bottom: 2px solid #E6E6E6;
+}
+
 .userprofile {
     display: flex;
 }
 
+.user_p {
+    margin-left: 5%;
+}
+
+.user_n {
+    margin-left: 5%;
+}
+
 .userprofile-btn {
     display: flex;
+    justify-content: space-between;
+
+}
+
+.user-bio {
+    margin: 5%;
+}
+
+.user_hello {
+    margin-left: 5%;
 }

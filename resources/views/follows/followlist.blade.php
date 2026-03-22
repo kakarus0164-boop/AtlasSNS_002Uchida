@@ -13,7 +13,7 @@
       <div class="follower-icon">
         @foreach($following as $user)
           <a href="/profile/{{ $user->id }}">
-            <img src="{{ asset('images/'.$user->icon_image) }}" class="user-icon" alt="icon">
+            <img src="{{ asset('storage/'.$user->icon_image) }}" class="user-icon" alt="icon">
           </a>
         @endforeach
      </div>
@@ -30,7 +30,7 @@
               <div class="post-icon">
                 <!-- {{-- アイコンをクリックしたらプロフィールへ --}} -->
                 <a href="/profile/{{ $post->user->id }}">
-                  <img src="{{ asset('images/'.$post->user->icon_image) }}" class="user-icon" alt="icon">
+                  <img src="{{ asset('storage/'.$post->user->icon_image) }}" class="user-icon" alt="icon">
                </a>
               </div>
 

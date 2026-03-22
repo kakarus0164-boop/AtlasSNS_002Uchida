@@ -9,12 +9,13 @@
   <div class="user-list-header">
       <div class="userprofile">
           <img src="{{ asset('images/'.$users->icon_image) }}" class="user-icon" alt="icon">
-            <p class="">ユーザー名{{ $users->username }}</p>
+            <P class="user_p">ユーザー名</P>
+            <p class="user_n">{{ $users->username }}</p>
       </div>
 
-
-      <div class="userprofile-btu">
-         <p class="">自己紹介{{ $users->bio }}</p>
+      <div class="userprofile-btn">
+         <p class="user_bio">自己紹介</P>
+         <p class="user_hello">{{ $users->bio }}</p>
 
         @if(auth()->user()->followings->contains($users->id))
 
@@ -32,7 +33,6 @@
                   <button class="follow-btn">フォローする</button>
                  </form>
         @endif
-
       </div>
 
   </div>

@@ -45,7 +45,6 @@
   </header>
 
     <!-- main layout -->
-  <div class="container-fluid">
     <div class="row">
 
       <!-- メインコンテンツ（投稿一覧など） -->
@@ -60,7 +59,6 @@
       </div>
 
     </div>
-  </div>
 
 <!-- Bootstrapはcssの上に -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

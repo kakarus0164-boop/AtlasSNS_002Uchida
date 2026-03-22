@@ -9,7 +9,7 @@
   <div class="post-form">
     <form action="{{ route('posts.store') }}" method="POST">
       @csrf
-      <img src="{{ asset('images/icon1.png') }}" class="user-icon">
+      <img src="{{ asset('images/'.Auth::user()->icon_image) }}" class="user-icon">
 
       <textarea
         name="post"
@@ -20,7 +20,7 @@
 
       <button type="submit" class="post-btn">
         <img src="{{ asset('images/post.png') }}" alt="投稿">
-      </button>
+</button>
     </form>
 
     @error('post')
@@ -40,7 +40,7 @@
 
           <div class="post-left">
                <div class="post-icon">
-                 <img src="https://placehold.jp/50x50.png" alt="{{ $post->user->username }}">
+                 <img src="{{ asset('images/'.$post->user->icon_image) }}" alt="{{ $post->user->username }}" class="user-icon">
                </div>
 
                <div class="post-body">

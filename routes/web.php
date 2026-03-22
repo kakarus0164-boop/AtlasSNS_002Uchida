@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
   Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
   //自分のプロフィール
   Route::get('/users/profile', [ProfileController::class, 'profile'])->name('users.profile');
+  //自分のプロフィール更新処理
+  Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
   //ユーザー検索画面
   Route::get('/users/search', [UsersController::class, 'search'])->name('users.search');
   //検索結果
