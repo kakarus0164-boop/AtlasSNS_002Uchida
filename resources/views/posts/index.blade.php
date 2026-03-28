@@ -40,7 +40,7 @@
 
           <div class="post-left">
                <div class="post-icon">
-                 <img src="{{ asset('images/'.$post->user->icon_image) }}" alt="{{ $post->user->username }}" class="user-icon">
+                 <img src="{{ asset('storage/'.$post->user->icon_image) }}" alt="{{ $post->user->username }}" class="user-icon">
                </div>
 
                <div class="post-body">

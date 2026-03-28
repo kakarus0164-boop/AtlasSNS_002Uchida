@@ -78,7 +78,6 @@ class ProfileController extends Controller
         $image = $request->file('images')->store('public');
         // store　=　Laravelが自動で名前を決める
         // storeAs = 自分でファイル名を指定できる
-
         }
         $user->update([
         'username' => $request->username,
@@ -87,7 +86,7 @@ class ProfileController extends Controller
           // データベースに入れるときのパスワードを丸見えにしないため
           // Hash ・・元に戻せない、ランダムな文字列にする。（だからデータベースには解読不可能な文字列が並べられる
         'bio' => $request->bio,
-        'images' => $image,
+        'icon_image' => $image,
         ]);
 
         return redirect()->route('posts.index');
