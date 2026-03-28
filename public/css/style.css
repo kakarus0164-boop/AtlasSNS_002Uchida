@@ -599,3 +599,43 @@ a {
 .user_hello {
     margin-left: 5%;
 }
+
+/* =========================
+   プロフィール編集画面
+========================= */
+
+.profile-edit-box {
+    width: 90%;
+    max-width: 900px;
+    margin: 60px auto;
+    /* autoは要素を左右中央に配置するために使用 */
+    display: flex;
+    flex-direction: column;
+    /* flex 横並び　column 上から下に配置 */
+    align-items: center;
+}
+
+.profile-edit-box form {
+    width: 100%;
+}
+
+/* 各行 左の欄 */
+.profile-item {
+    display: flex;
+    align-items: flex-start;
+    /* 垂直上並び */
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+/* ラベル（左がわのユーザー名など） */
+.profile-item label {
+    width: 140px;
+    min-width: 140px;
+    font-size: 16px;
+    padding-top: 8px;
+    color: #333;
+}
+
+.profile-item input[type="text"],
+.profile-item input[type="email"],
