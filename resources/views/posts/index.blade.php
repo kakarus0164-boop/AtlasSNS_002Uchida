@@ -9,7 +9,12 @@
   <div class="post-form">
     <form action="{{ route('posts.store') }}" method="POST">
       @csrf
-      <img src="{{ asset('storage/'.Auth::user()->icon_image) }}" class="user-icon">
+      @if(Auth::user()->icon_image!='icon1.png')
+            <img src="{{ asset('storage/'.Auth::user()->icon_image) }}" class="user-icon" alt="icon">
+            @else
+            <img src="{{ asset('images/icon1.png') }}" class="user-icon" alt="icon">
+      @endif
+      <!-- Auth::user →　ログインしているユーザー -->
 
       <textarea
         name="post"
@@ -40,7 +45,11 @@
 
           <div class="post-left">
                <div class="post-icon">
-                 <img src="{{ asset('storage/'.$post->user->icon_image) }}" alt="{{ $post->user->username }}" class="user-icon">
+                  @if($post->user->icon_image!='icon1.png')
+                  <img src="{{ asset('storage/'.$post->user->icon_image) }}" class="user-icon" alt="icon">
+                  @else
+                  <img src="{{ asset('images/icon1.png') }}" class="user-icon" alt="icon">
+                  @endif
                </div>
 
                <div class="post-body">

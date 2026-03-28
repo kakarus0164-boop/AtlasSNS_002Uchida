@@ -75,7 +75,8 @@ class ProfileController extends Controller
         if ($request->hasFile('images')) {
 
         // $imageUpdate = $request->file('images')->getClientOriginalName();
-        $image = $request->file('images')->store('public');
+        $image = $request->file('images')->store('images','public');
+        // ()の中のpublicを直打ちはNG。（フォルダ名は左に記述→どの場所に格納するかは右に記述）
         // store　=　Laravelが自動で名前を決める
         // storeAs = 自分でファイル名を指定できる
         }

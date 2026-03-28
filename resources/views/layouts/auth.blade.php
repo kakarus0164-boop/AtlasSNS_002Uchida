@@ -19,14 +19,18 @@
 
       <div class="user-menu">
           <span class="user-name">
-            {{ Auth::user()->name ?? 'admin' }} さん
+            {{ Auth::user()->username ?? 'admin' }} さん
           </span>
 
           <!-- >の下向き -->
           <span class="dropdown-arrow"></span>
 
          <!-- ユーザーアイコン -->
-         <img src="{{ asset('images/icon1.png') }}" alt="ユーザーアイコン" class="user-icon">
+          @if(Auth::user()->icon_image!='icon1.png')
+            <img src="{{ asset('storage/'.Auth::user()->icon_image) }}" class="user-icon" alt="icon">
+            @else
+            <img src="{{ asset('images/icon1.png') }}" class="user-icon" alt="icon">
+          @endif
 
          <!-- ドロップダウンメニュー -->
          <ul class="dropdown-menu">
