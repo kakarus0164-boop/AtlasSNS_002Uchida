@@ -7,8 +7,9 @@
 <div class="search-container">
    <form action="{{ route('users.search') }}" method="GET"  class="search-container">
       <input type="text" name="search" placeholder="ユーザー名" value="{{ request('search') }}">
-      <button type="submit">検索</button>
+      <button type="submit"><img src="{{ asset('images/search.png') }}" class="hover"></button>
    </form>
+
 
      @if(isset($search))
      <!-- 検索ボタンの判定 検索ボタンが押された時にtrue -->
@@ -22,7 +23,11 @@
        @foreach($users as $user) <!-- 引っ張り出したい値（変数）を整列させてより取り出しやすくするため -->
          <div class ="username">
             <div class="user-left">
-              <img src="{{ asset('images/' . ($user->icon_image ?? 'default.png')) }}" class="user-icon">
+              @if($user->icon_image!='icon1.png')
+                <img src="{{ asset('storage/'.$user->icon_image) }}" class="user-icon" alt="icon">
+              @else
+                <img src="{{ asset('images/icon1.png') }}" class="user-icon" alt="icon">
+              @endif
               <p class="user">{{ $user->username }}</p>
             </div>
 

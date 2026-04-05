@@ -42,7 +42,6 @@
 
      @foreach($posts as $post)
         <div class="post">
-
           <div class="post-left">
                <div class="post-icon">
                   @if($post->user->icon_image!='icon1.png')
@@ -88,8 +87,9 @@
               </form>
 
           </div>
-         </div>
+
         @endif
+      </div>
 
       </div>
   @endforeach

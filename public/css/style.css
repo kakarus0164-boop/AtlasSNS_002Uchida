@@ -212,11 +212,11 @@ body.auth #side-bar {
 
 .post-form textarea {
     flex: 1;
-    /* resize: none; */
-    /* padding: 10px; */
-    /* font-size: 14px; */
-    /* border: 1px solid #ccc; */
-    /* border-radius: 4px; */
+    resize: none;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .post-form button {
@@ -314,11 +314,6 @@ body.auth #side-bar {
     flex-direction: column;
     align-items: flex-end;
     gap: 6px;
-}
-
-.post-actions {
-    display: flex;
-    gap: 8px;
 }
 
 .post-actions img {
@@ -487,7 +482,7 @@ body.auth #side-bar {
     justify-content: space-between;
     align-items: center;
     padding: 25px 0;
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
 }
 
 .user {

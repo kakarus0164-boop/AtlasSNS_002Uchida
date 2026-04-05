@@ -1,8 +1,7 @@
 <aside>
     <!-- ユーザー情報 -->
     <div class="sidebar-user">
-        <p>{{ Auth::user()->name ?? 'admin' }}</p>
-        <p>投稿数: {{ Auth::user()->posts_count ?? 0 }}</p>
+        <p>{{ Auth::user()->username ?? 'admin' }}さんの</p>
     </div>
 
     <!-- フォロー情報 -->
