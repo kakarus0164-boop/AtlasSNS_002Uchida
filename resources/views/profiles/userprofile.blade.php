@@ -8,7 +8,11 @@
    <!-- フォロワーリストのヘッダー部分  -->
   <div class="user-list-header">
       <div class="userprofile">
-          <img src="{{ asset('images/'.$users->icon_image) }}" class="user-icon" alt="icon">
+            @if($users->icon_image!='icon1.png')
+            <img src="{{ asset('storage/'.$users->icon_image) }}" class="user-icon" alt="icon">
+            @else
+            <img src="{{ asset('images/icon1.png') }}" class="user-icon" alt="icon">
+            @endif
             <P class="user_p">ユーザー名</P>
             <p class="user_n">{{ $users->username }}</p>
       </div>
