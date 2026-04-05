@@ -54,7 +54,13 @@
               <div class="post-icon">
                  <!-- アイコンをクリックしたらプロフィールへ --}} -->
                 <a href="/profile/{{ $post->user->id }}">
-                  <img src="{{ asset('images/'.$post->user->icon_image) }}" class="user-icon" alt="icon">
+                    @if($post->user->icon_image != 'icon1.png')
+                      <!-- -- アップロードされた画像を表示（storageを通す） --}} -->
+                      <img src="{{ asset('storage/'.$post->user->icon_image) }}" class="user-icon" alt="icon">
+                    @else
+                      <!-- -- 初期アイコンを表示（直接 images を見る） --}} -->
+                      <img src="{{ asset('images/icon1.png') }}" class="user-icon" alt="icon">
+                    @endif
                </a>
               </div>
 

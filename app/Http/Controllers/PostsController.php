@@ -11,8 +11,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')
-            ->where('user_id', Auth::id())
+        // Auth::user()→ログインしているユーザーの全ての情報を取得
+        $admin = Auth::user();
+        $posts = Post::whereIn('user_id', $admin->followings()->pluck('followed_id')->push($admin->id))
             ->latest()
             ->get();
 
