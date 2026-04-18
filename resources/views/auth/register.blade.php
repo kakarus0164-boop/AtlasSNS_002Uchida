@@ -2,11 +2,14 @@
     <!-- 適切なURLを入力してください -->
 
 <div class="wrapper">
-  <div class="login-box register-box">
-
+    <div class="logo-container2">
+        <h1 class="logo"><img src="{{ asset('images/atlas.png') }}" alt="Atlas"></h1>
+        <p class="title">Social Network Service</p>
+    </div>
+    <div class="login-box register-box">
        {!! Form::open(['url' => 'register']) !!}
 
-           <h2>新規ユーザー登録</h2>
+           <p class="welcome-msg">新規ユーザー登録</p>
            @if ($errors->any())
                <div style="color:red;">
                    <ul>

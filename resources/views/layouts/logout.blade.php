@@ -24,9 +24,9 @@
     </head>
     <body>
         <header>
-            <div class="logo">
+            <!-- <div class="logo">
                 <img src="{{ asset('images/atlas.png') }}" alt="Atlas" class="logo">
-            </div>
+            </div> -->
 
             {{-- ログアウト --}}
             <form method="POST" action="{{ route('logout') }}">

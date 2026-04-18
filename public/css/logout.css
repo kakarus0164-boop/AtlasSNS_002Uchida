@@ -1,99 +1,145 @@
 @charset "UTF-8";
 
-html {
+/* 背景と全体のレイアウト */
+html,
+body {
     height: 100%;
+    margin: 0;
 }
 
 body {
-    background: linear-gradient(0deg,
-            rgba(238, 219, 39, 1),
-            rgba(21, 140, 241, 1)69%);
-}
-
-/* =========================
-   main layout（ログイン前）
-========================= */
-
-.logo {
-    margin-top: 15px;
+    background: linear-gradient(0deg, rgba(238, 219, 39, 1), rgba(21, 140, 241, 1) 69%);
+    font-family: sans-serif;
 }
 
 .wrapper {
-    height: 100%;
+    min-height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.login-box {
-    width: 360px;
-    padding: 35px 30px;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.35);
+/* ロゴ周り */
+.logo-container {
     text-align: center;
-    color: white;
+    margin-top: 80px;
+    margin-bottom: 30px;
 }
 
-.login-box input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
+.logo-container2 {
+    text-align: center;
+    /* margin-top: 80px; */
+    margin-bottom: 30px;
 }
 
-.login-box button {
-    width: 120px;
-    padding: 8px;
-    margin-top: 15px;
-    background: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.logo {
+    font-size: 80px;
+    color: #fff;
+    margin: 0;
+}
+
+.logo img {
+    width: 220px;
+    height: auto;
     display: block;
-    margin-left: auto;
+    margin: 0 auto;
 }
 
+.title {
+    font-size: 26px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ログインボックス（ここが重要） */
+.login-box {
+    width: 450px;
+    margin-top: 20px;
+    padding: 40px 60px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    /* 半透明の黒 */
+    text-align: center;
+    /* color: white; */
+    box-sizing: border-box;
+}
+
+.welcome-msg {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    /* 入力欄との間隔 */
+    color: #fff;
+    text-align: center;
+}
+
+.welcome-msg2 {
+    font-size: 20px;
+    font-weight: bold;
+    /* margin-top: 10px; */
+    /* margin-bottom: 30px; */
+    color: #fff;
+    text-align: center;
+}
+
+.welcome-msg3 {
+    /* font-size: 20px;
+    font-weight: bold; */
+    /* margin-top: 10px; */
+    /* margin-bottom: 30px; */
+    color: #fff;
+    text-align: center;
+}
+
+/* 入力セット（縦並びにする設定） */
 .form-group {
-    margin-bottom: 15px;
-}
-
-.input {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-}
-
-.register-box {
-    width: 420px;
-    max-width: 90%;
-}
-
-.register-btn {
-    width: 120px;
-    padding: 8px;
-    margin-top: 15px;
-    background: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
+    margin-bottom: 25px;
+    text-align: left;
+    /* ラベルを左に寄せる */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-size: 13px;
-}
-
-input {
-    color: black;
-}
-
-a {
+    /* 1行専有させて、入力欄を下に落とす */
     color: #fff;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* 入力欄を横いっぱいに広げる */
+.input {
+    width: 100% !important;
+    /* 他の設定に負けないように強制適用 */
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    padding: 0 15px;
+    box-sizing: border-box;
+    /* パディングを含めて100%幅にする */
+    background-color: #fff;
+}
+
+/* ログインボタンを中央にする */
+.register-btn {
+    display: block;
+    width: 130px;
+    height: 45px;
+    margin: 20px auto 20px auto;
+    /* 左側をautoにして右に寄せる */
+    background-color: #E65353;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.register-link a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
 }
