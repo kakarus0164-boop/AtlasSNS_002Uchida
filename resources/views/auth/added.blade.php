@@ -7,10 +7,12 @@
     <div class="login-box register-box">
         <div class="welcome-msg2">{{ session('username') }} さん</div>
         <div class="welcome-msg2">ようこそ！AtlasSNSへ！</div>
-        <div class="welcome-msg2">ユーザー登録が完了しました。</div>
-        <div class="welcome-msg2">早速ログインをしてみましょう。</div>
+        <div class="welcome-msg3">
+            <p>ユーザー登録が完了しました。</p>
+            <p>早速ログインをしてみましょう。</p>
+        </div>
 
-        <button type="submit" class="btn btn-danger"><a href="login">ログイン画面へ</a></button>
+        <a href="{{ route('login') }}" class="btn btn-danger">ログイン画面へ</a>
     </div>
 
 </x-logout-layout>

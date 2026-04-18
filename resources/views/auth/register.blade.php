@@ -2,7 +2,7 @@
     <!-- 適切なURLを入力してください -->
 
 <div class="wrapper">
-    <div class="logo-container2">
+    <div class="logo-container">
         <h1 class="logo"><img src="{{ asset('images/atlas.png') }}" alt="Atlas"></h1>
         <p class="title">Social Network Service</p>
     </div>
@@ -32,17 +32,21 @@
 
            <div class="form-group">
                {{ Form::label('password','パスワード') }}
-               {{ Form::password('password',null,['class' => 'input']) }}
+               {{ Form::password('password',['class' => 'input']) }}
+               <!-- password = value属性が入らない -->
+               <!-- passwordは表示させないようLaravelの設計時に指摘される。なのでnull(value属性)は入れない -->
+               <!-- []は任意でつけているのでつけなくていもいいが、デザインを統一するためにclassをつけている -->
            </div>
 
            <div class="form-group">
                {{ Form::label('password_confirmation','パスワード確認') }}
-               {{ Form::password('password_confirmation',null,['class' => 'input']) }}
+               {{ Form::password('password_confirmation',['class' => 'input']) }}
+               <!-- password = value属性が入らない -->
            </div>
 
            {{ Form::submit('新規登録' , ['class' => 'register-btn']) }}
 
-           <p><a href="{{ route('login') }}">ログイン画面へ戻る</a></p>
+           <p class="register-link"><a href="{{ route('login') }}">ログイン画面へ戻る</a></p>
 
         {!! Form::close() !!}
    </div>

@@ -3,7 +3,7 @@
 /* 背景と全体のレイアウト */
 html,
 body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
 }
 
@@ -24,12 +24,6 @@ body {
 .logo-container {
     text-align: center;
     margin-top: 80px;
-    margin-bottom: 30px;
-}
-
-.logo-container2 {
-    text-align: center;
-    /* margin-top: 80px; */
     margin-bottom: 30px;
 }
 
@@ -57,7 +51,8 @@ body {
 .login-box {
     width: 450px;
     margin-top: 20px;
-    padding: 40px 60px;
+    margin-bottom: 60px;
+    padding: 40px 40px;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.25);
     /* 半透明の黒 */
@@ -86,12 +81,20 @@ body {
 }
 
 .welcome-msg3 {
-    /* font-size: 20px;
-    font-weight: bold; */
+    font-size: 20px;
+    /* font-weight: bold; */
     /* margin-top: 10px; */
     /* margin-bottom: 30px; */
     color: #fff;
     text-align: center;
+    padding: 0px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.welcome-msg3 p {
+    padding: 0;
+    margin: 0;
 }
 
 /* 入力セット（縦並びにする設定） */
@@ -140,6 +143,6 @@ body {
 
 .register-link a {
     color: #fff;
-    text-decoration: none;
+    text-decoration: underline;
     font-size: 13px;
 }

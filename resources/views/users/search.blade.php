@@ -4,12 +4,11 @@
 @section('content')
 
 {{-- 検索ホーム --}}
-<div class="search-container">
+<div class="search-form">
    <form action="{{ route('users.search') }}" method="GET"  class="search-container">
       <input type="text" name="search" placeholder="ユーザー名" value="{{ request('search') }}">
       <button type="submit"><img src="{{ asset('images/search.png') }}" class="hover"></button>
    </form>
-
 
      @if(isset($search))
      <!-- 検索ボタンの判定 検索ボタンが押された時にtrue -->
@@ -17,8 +16,6 @@
       <!-- 文字列と変数をくっつけるのは「.」 -->
      @endif
 </div>
-
-
 
        @foreach($users as $user) <!-- 引っ張り出したい値（変数）を整列させてより取り出しやすくするため -->
          <div class ="username">

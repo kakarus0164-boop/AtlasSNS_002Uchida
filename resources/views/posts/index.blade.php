@@ -100,8 +100,7 @@
     <div id="edit-modal" class="edit-modal">
       <div class="edit-modal-content">
 
-        <form method="POST" id="edit-form">
-
+        <form action="{{ route('posts.update', $post->id) }}" method="POST" id="edit-form">
           @csrf
           @method('PUT')
 
@@ -115,8 +114,7 @@
           ></textarea>
 
           <div class="modal-buttons">
-            <button type="submit">更新</button>
-            <button type="button" id="close-modal">キャンセル</button>
+            <button type="submit"><img src="{{ asset('images/edit.png') }}" class="normal" alt="編集"></button>
           </div>
 
         </form>

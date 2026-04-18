@@ -6,6 +6,7 @@
 body {
     margin: 0;
     font-family: sans-serif;
+    background-color: #fff;
 }
 
 /* =========================
@@ -428,9 +429,14 @@ body.auth #side-bar {
 /* 更新ボタン */
 .modal-buttons button[type="submit"] {
     background: #fff;
-    border: 1px solid #333;
+    border: none;
     padding: 8px 18px;
     cursor: pointer;
+}
+
+.modal-buttons button img {
+    width: 50%;
+    margin-left: 160%;
 }
 
 /* キャンセル */
@@ -446,15 +452,23 @@ body.auth #side-bar {
 ========================= */
 .search-container {
     display: flex;
-    background: #fff;
+    /* background: #fff; */
     padding: 30px;
     max-width: 700px;
+    align-items: center;
+    gap: 15px;
 }
 
-.search-form input {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
+.search-container input {
+    height: 50px;
+    width: 300px;
+}
+
+.search-container img {
+    /* padding: 8px 12px; */
     border-radius: 4px;
+    width: 28px;
+    height: 30px;
 }
 
 .search-form button {
@@ -467,10 +481,19 @@ body.auth #side-bar {
 }
 
 .search-form {
-    /* display: flex; */
+    background: #fff;
+    padding: 20px 80px 20px 0px;
+    border-bottom: 5px solid #e0e0e0;
+    display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
+}
+
+.search-form h3 {
+    background: #fff;
+    padding: 20px 80px 20px 60px;
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
 }
 
 .search-container h3 {
@@ -482,6 +505,8 @@ body.auth #side-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 30%;
+    margin-right: 20%;
     padding: 25px 0;
     /* border-bottom: 1px solid #ddd; */
 }
@@ -537,7 +562,7 @@ a {
     flex-wrap: wrap;
     /* アイコンが増えたら自動的に折り返す */
     padding: 20px;
-    border-bottom: 2px solid #E6E6E6;
+    border-bottom: 5px solid #E6E6E6;
     /* 下線 */
 }
 
