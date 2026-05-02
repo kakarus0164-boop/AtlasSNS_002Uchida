@@ -677,5 +677,16 @@ a {
     color: #333;
 }
 
+.profile-box {
+    margin-left: 100px;
+}
+
+.profile_icon {
+    width: 10%;
+    position: absolute;
+    top: 10%;
+    left: 6%;
+}
+
 .profile-item input[type="text"],
 .profile-item input[type="email"],

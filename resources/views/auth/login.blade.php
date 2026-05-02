@@ -11,12 +11,12 @@
              <p class="welcome-msg">AtlasSNSへようこそ</p>
 
               <div class="form-group">
-                {{ Form::label('email') }}
+                {{ Form::label('メールアドレス') }}
                 {{ Form::text('email', null, ['class' => 'input']) }}
               </div>
 
               <div class="form-group">
-                {{ Form::label('password') }}
+                {{ Form::label('パスワード') }}
                 {{ Form::password('password', ['class' =>  'input']) }}
               </div>
 
