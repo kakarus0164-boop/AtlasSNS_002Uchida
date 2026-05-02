@@ -51,16 +51,23 @@
                   @endif
                </div>
 
+               <!-- 右側 -->
                <div class="post-body">
+                <!-- 名前と時間を両端に飛ばす -->
                    <div class="post-header">
                        <p class="post-user">{{ $post->user->username }}</p>
                        <p class="post-meta">{{ $post->created_at->format('Y-m-d H:i') }}</p>
                    </div>
-                   <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
+
+                   <!-- ②本文 -->
+                    <div class="post-content">
+                      <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
+                    </div>
                </div>
           </div>
 
           <div class="post-right">
+            <!-- ③ボタンを本文の下（右下）に配置 -->
               @if(Auth::id() === $post->user_id)
                 <div class="post-actions">
 
@@ -100,7 +107,7 @@
     <div id="edit-modal" class="edit-modal">
       <div class="edit-modal-content">
 
-        <form action="{{ route('posts.update', $post->id) }}" method="POST" id="edit-form">
+        <form action="" method="POST" id="edit-form">
           @csrf
           @method('PUT')
 
