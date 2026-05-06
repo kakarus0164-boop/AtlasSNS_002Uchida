@@ -45,7 +45,10 @@
               <div class="post-body">
                 <div class="post-header">
                   <p class="post-user">{{ $post->user->username }}</p>
+               </div>
+               <div class="post-right-container">
                   <p class="post-meta">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+               </div>
                 </div>
                 <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
               </div>

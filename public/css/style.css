@@ -731,7 +731,7 @@ a {
 
 /* ラベル（左がわのユーザー名など） */
 .profile-item label {
-    width: 140px;
+    width: 200px;
     min-width: 140px;
     font-size: 16px;
     padding-top: 8px;
@@ -744,12 +744,27 @@ a {
 
 .profile_icon {
     width: 10%;
-    position: absolute;
     top: 10%;
     left: 6%;
 }
 
 .profile-item input[type="text"],
-.profile-item input[type="email"] {
-    width: auto;
+.profile-item input[type="email"],
+.profile-item input[type="password"],
+.profile-item textarea,
+.profile-item input[type="file"] {
+    width: 350px;
+}
+
+.profile-area {
+    display: flex;
+}
+
+.profile-submit {
+    padding-top: 25px;
+    text-align: center;
+}
+
+.profile-submit .btn {
+    width: 150px;
 }
