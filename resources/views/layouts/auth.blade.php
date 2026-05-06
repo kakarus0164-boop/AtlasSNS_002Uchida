@@ -53,12 +53,12 @@
 
       <!-- メインコンテンツ（投稿一覧など） -->
       <!-- メイン（左） -->
-      <div class="col-md-9">
+      <div class="content">
         @yield('content')
       </div>
 
       <!-- サイドバー（右） -->
-      <div class="col-md-3">
+      <div class="side-ber">
         @include('layouts.sidebar')
       </div>
 

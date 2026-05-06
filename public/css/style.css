@@ -151,17 +151,27 @@ body.auth #container {
     /* フォームの周りに隙間を作らない場合は0に */
     /* box-sizing: border-box; */
     background-color: #fff;
-    border-right: 1px solid #727272;
+    /* border-right: 1px solid #727272; */
 }
 
 body.auth #side-bar {
-    width: 200px;
+    width: auto;
     /* flex: 0 0 300px; */
     /* padding: 20px; */
     /* box-sizing: border-box; */
     /* background: #fff; */
     background-color: #efefef;
     border-left: 1px solid #333;
+}
+
+.side-ber {
+    min-height: 100vh;
+    border-left: 1px solid #727272;
+    width: 10%;
+}
+
+.content {
+    max-width: 80%;
 }
 
 /* =========================
@@ -212,6 +222,7 @@ body.auth #side-bar {
     background: #fff;
     padding: 20px 80px 20px 60px;
     border-bottom: 5px solid #e0e0e0;
+    max-width: 100vw;
 }
 
 .post-form form {
@@ -472,13 +483,13 @@ body.auth #side-bar {
 .modal-buttons button[type="submit"] {
     background: #fff;
     border: none;
-    padding: 8px 18px;
     cursor: pointer;
+    width: 10%;
+    margin-left: 45%;
 }
 
 .modal-buttons button img {
-    width: 50%;
-    margin-left: 160%;
+    width: 100%;
 }
 
 /* キャンセル */
@@ -713,4 +724,6 @@ a {
 }
 
 .profile-item input[type="text"],
-.profile-item input[type="email"],
+.profile-item input[type="email"] {
+    width: auto;
+}
