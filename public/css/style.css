@@ -672,7 +672,8 @@ a {
 }
 
 .user-list-header {
-    border-bottom: 2px solid #E6E6E6;
+    border-bottom: 5px solid #E6E6E6;
+    height: 15%;
 }
 
 .userprofile {
@@ -687,18 +688,20 @@ a {
     margin-left: 5%;
 }
 
-.userprofile-btn {
-    display: flex;
-    justify-content: space-between;
-
+.user-list-header button {
+    margin-top: 30px;
 }
 
-.user-bio {
-    margin: 5%;
+.user_bio {
+    margin-left: 5%;
 }
 
 .user_hello {
     margin-left: 5%;
+}
+
+.profile-flex {
+    display: flex;
 }
 
 /* =========================

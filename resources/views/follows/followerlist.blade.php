@@ -26,11 +26,10 @@
    <!-- 投稿一覧（参考 index.blade） -->
   <div class="timeline">
     @if($posts->isEmpty())
-      <p class="no-post">まだ投稿がありません。<p>
+      <p class="no-post">まだ投稿がありません。</p>
     @else
         @foreach($posts as $post)
           <div class="post">
-            <div class="post-left">
               <div class="post-icon">
                  <!-- アイコンをクリックしたらプロフィールへ --}} -->
                 <a href="/profile/{{ $post->user->id }}">
@@ -43,24 +42,22 @@
               </div>
 
               <div class="post-body">
-                <div class="post-header">
                   <p class="post-user">{{ $post->user->username }}</p>
-               </div>
-               <div class="post-right-container">
-                  <p class="post-meta">{{ $post->created_at->format('Y-m-d H:i') }}</p>
-               </div>
-                </div>
-                <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
+                  <div class="post-content">
+                    <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
+                 </div>
               </div>
-
-           </div>
-           <!-- {{-- 編集・削除ボタンはここには置かない（完成図に合わせる） --}} -->
+              <div class="post-right-container">
+                <p class="post-meta">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+              </div>
           </div>
-        @endforeach
-    @endif
-</div>
-
+        <!-- </div> -->
+           <!-- {{-- 編集・削除ボタンはここには置かない（完成図に合わせる） --}} -->
+      <!-- </div> -->
+    @endforeach
+  @endif
   </div>
+ </div>
 </div>
 
 @endsection
