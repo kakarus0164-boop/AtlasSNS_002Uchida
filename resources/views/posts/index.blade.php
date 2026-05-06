@@ -42,7 +42,8 @@
 
      @foreach($posts as $post)
         <div class="post">
-          <div class="post-left">
+          <!-- <div class="post-left"> -->
+               <!-- アイコン・ブロック -->
                <div class="post-icon">
                   @if($post->user->icon_image!='icon1.png')
                   <img src="{{ asset('storage/'.$post->user->icon_image) }}" class="user-icon" alt="icon">
@@ -51,55 +52,37 @@
                   @endif
                </div>
 
-               <!-- 右側 -->
-               <div class="post-body">
-                <!-- 名前と時間を両端に飛ばす -->
-                   <div class="post-header">
-                       <p class="post-user">{{ $post->user->username }}</p>
-                       <p class="post-meta">{{ $post->created_at->format('Y-m-d H:i') }}</p>
-                   </div>
+         <!-- 2. 本文・ブロック  -->
+            <div class="post-body">
+                <p class="post-user">{{ $post->user->username }}</p>
+                <div class="post-content">
+                    <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
+                </div>
+            </div>
 
-                   <!-- ②本文 -->
-                    <div class="post-content">
-                      <p class="post-text">{!! nl2br(e($post->post)) !!}</p>
+            <!-- 3. 右側まとめ・ブロック（時間とボタン） -->
+            <div class="post-right-container">
+                <p class="post-meta">{{ $post->created_at->format('Y-m-d H:i') }}</p>
+
+                @if(Auth::id() === $post->user_id)
+                    <div class="post-actions">
+                        <button type="button" class="edit-btn" data-id="{{ $post->id }}" data-post="{{ e($post->post) }}">
+                            <img src="{{ asset('images/edit.png') }}" class="normal" alt="編集">
+                            <img src="{{ asset('images/edit_h.png') }}" class="hover" alt="編集">
+                        </button>
+                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete-btn" onclick="return confirm('削除しますか？')">
+                                <img src="{{ asset('images/trash.png') }}" class="normal" alt="削除">
+                                <img src="{{ asset('images/trash-h.png') }}" class="hover" alt="削除">
+                            </button>
+                        </form>
                     </div>
-               </div>
-          </div>
-
-          <div class="post-right">
-            <!-- ③ボタンを本文の下（右下）に配置 -->
-              @if(Auth::id() === $post->user_id)
-                <div class="post-actions">
-
-                   {{-- 編集（モーダルを開く --}}
-                   <button
-                       type="button"
-                       class="edit-btn"
-                       data-id="{{ $post->id }}"
-                       data-post="{{ e($post->post) }}"
-              >
-                <img src="{{ asset('images/edit.png') }}" class="normal" alt="編集">
-                <img src="{{ asset('images/edit_h.png') }}" class="hover" alt="編集">
-              </button>
-
-              {{-- 削除 --}}
-              <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="delete-btn" onclick="return confirm('削除しますか？')">
-                  <img src="{{ asset('images/trash.png') }}" class="normal" alt="削除">
-                  <img src="{{ asset('images/trash-h.png') }}" class="hover"
-                   alt="削除">
-                </button>
-              </form>
-
-          </div>
-
-        @endif
-      </div>
-
-      </div>
-  @endforeach
+                @endif
+            </div>
+        </div>
+     @endforeach
 @endif
 </div>
 
