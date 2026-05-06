@@ -49,8 +49,8 @@
   </header>
 
     <!-- main layout -->
-    <div class="row">
-
+    <div class="row gx-0">
+      <!-- ブーロストラップ側ですでにグリットとflexをつけている。そのため、gx-0にすると無効になる -->
       <!-- メインコンテンツ（投稿一覧など） -->
       <!-- メイン（左） -->
       <div class="content">

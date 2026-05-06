@@ -7,6 +7,7 @@ body {
     margin: 0;
     font-family: sans-serif;
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 /* =========================
@@ -72,18 +73,22 @@ header .user-menu .dropdown-menu {
     list-style: none;
     padding: 0;
     margin: 0;
-
-    width: 200px;
-
+    width: 250px;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    min-width: 160px;
+    min-width: unset;
     z-index: 1000;
+    margin-left: 50px;
 }
 
 /* 表示状態 */
 header .user-menu .dropdown-menu.show {
     display: block;
+    position: absolute;
+    top: 60px;
+    /* アイコンの下に表示 */
+    right: 0;
+    left: auto;
 }
 
 /* メニュー項目 */
@@ -167,11 +172,31 @@ body.auth #side-bar {
 .side-ber {
     min-height: 100vh;
     border-left: 1px solid #727272;
-    width: 10%;
+    max-width: 20%;
 }
 
 .content {
     max-width: 80%;
+}
+
+.sidebar-follow,
+.sidebar-user {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.sidebar-follow .btn {
+    text-align: right;
+}
+
+.sidebar-search {
+    border-top: 1px solid #727272;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.text-right {
+    margin-right: 30px;
 }
 
 /* =========================
@@ -553,6 +578,7 @@ body.auth #side-bar {
     margin-top: 5%;
     margin-left: 20%;
 }
+
 
 .username {
     display: flex;
