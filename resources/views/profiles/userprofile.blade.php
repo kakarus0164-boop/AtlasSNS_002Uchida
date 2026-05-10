@@ -24,7 +24,7 @@
                <p class="user_hello">{{ $users->bio }}</p>
             </div>
       </div>
-
+      
         @if(auth()->user()->followings->contains($users->id))
 
                  <!-- {{-- フォロー済みの場合 --}} -->
